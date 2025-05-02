@@ -1,0 +1,45 @@
++-----------------------+----------------------------------------------------+
+| Parameter             | Value                                              |
++-----------------------+----------------------------------------------------+
+| train data pattern    | data/fineweb_train_*.bin                           |
+| val data pattern      | data/fineweb_val_*.bin                             |
+| output log dir        | logGPT                                             |
+| checkpoint_every      | 1000                                               |
+| resume                | 0                                                  |
+| micro batch size B    | 32                                                 |
+| sequence length T     | 1024                                               |
+| total batch size      | 524288                                             |
+| LR scheduler          | cosine                                             |
+| learning rate (LR)    | 6.397603e-03                                       |
+| warmup iterations     | 470                                                |
+| final LR fraction     | 0.000000e+00                                       |
+| weight decay          | 1.000000e-01                                       |
+| skip update lossz     | 0.000000                                           |
+| skip update gradz     | 0.000000                                           |
+| max_steps             | 4725                                               |
+| early_stopping_steps  | -1                                                 |
+| val_loss_every        | 250                                                |
+| val_max_steps         | 20                                                 |
+| sample_every          | 20000                                              |
+| genT                  | 64                                                 |
+| overfit_single_batch  | 0                                                  |
+| use_master_weights    | enabled                                            |
+| gelu_fusion           | 0                                                  |
+| recompute             | 1                                                  |
++-----------------------+----------------------------------------------------+
+| device                | NVIDIA A10G                                        |
+| peak TFlops           | -1.0                                               |
+| precision             | BF16                                               |
++-----------------------+----------------------------------------------------+
+| weight init method    | (null)                                             |
+| max_sequence_length T | 1024                                               |
+| vocab_size V          | 50257                                              |
+| padded_vocab_size Vp  | 50304                                              |
+| num_layers L          | 12                                                 |
+| num_heads NH          | 12                                                 |
+| channels C            | 768                                                |
+| num_parameters        | 124475904                                          |
++-----------------------+----------------------------------------------------+
+| train_num_batches     | 4725                                               |
+| val_num_batches       | 20                                                 |
++-----------------------+----------------------------------------------------+
