@@ -1,0 +1,58 @@
+\setlength\parindent{0pt}
+\setlength{\parskip}{\baselineskip}
+
+\section{Programming [35 Points]}
+
+\subsection{Linear Regression on the Million Songs Dataset [35 Points]}
+
+\subsubsection{Introduction}
+In this section, you will train a linear regression model to predict the release year of a song given a set of audio features.
+
+We provide the code template for this section assignment in \textit{one} Jupyter notebook. What you need to do is to follow the instructions in the notebooks and implement the missing parts marked with `\texttt{<FILL\_IN>}' or `\texttt{\# YOUR CODE HERE}'. Most of the `\texttt{<FILL\_IN>/YOUR CODE HERE}' sections can be implemented in just one or two lines of code. Also, keep in mind to delete the `\texttt{raise NotImplementedError()}' once you are done implementing a function. We provide several \texttt{assert} statements in the notebook for you to check the validity of your solution. Finally, note that the presence or location of comments in the cell (such as `\texttt{\# YOUR CODE HERE}') do not affect the autograder.
+
+\subsubsection{Getting Started}
+\begin{enumerate}
+    
+\item \textbf{Getting lab files}\\
+You can obtain the notebook \texttt{`hw2\_coding.ipynb'} for this programming questions in .zip file.
+
+Next, import the notebook into your Databricks account, which provides you a well-configured Spark environment and will definitely save your time (see Homework 1 handout for details).
+
+\item \textbf{Writing your code}\\
+In order to enable auto-grading, please do not change any function signatures (e.g., function name, parameters, etc) or delete any cells. If you do delete any of the provided cells (even if you re-add them), the autograder will fail to grade your homework. If you do this, you will need to re-download the homework files and fill in your answers again and resubmit.
+
+\item \textbf{Preparing for submission}\\
+We provide several public tests via \texttt{assert} in the notebook. You may want to pass all those tests before submitting your homework. 
+
+\item \textbf{Submission}
+\begin{enumerate}
+    \item Export the solution notebooks as IPython notebook files on Databricks via \texttt{File -> Export -> IPython Notebook}
+    \item Submit the completed notebook via Gradescope.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsubsection{Instructions}
+This section covers a common supervised learning pipeline, using a subset of the \href{http://millionsongdataset.com/}{Million Song Dataset} from the \href{https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD}{UCI Machine Learning Repository}. Our goal is to train a linear regression model to predict the release year of a song given a set of audio features.
+
+In this section, you will be implementing a common supervised learning pipeline, using a subset of the Million Song Dataset from the UCI Machine Learning Repository, to train a linear regression model to predict the release year of a song given a set of audio features.
+
+In this part, we will cover
+\begin{itemize}
+    \item Part 1: Reading and parsing the Million Song dataset
+    \item Part 2: Creating and evaluating a baseline model
+    \item Part 3: Training (via gradient descent) and evaluating a linear regression model
+    \item Part 4: Training using SparkML and tune hyperparameters via grid search
+    \item Part 5: Adding interactions between features
+\end{itemize}
+
+See the notebook for detailed descriptions and instructions of each question.
+
+\subsubsection{Deliverables}
+The deliverable for this programming section is the completed .ipynb notebook. Please submit your notebook to the autograder on Gradescope. Note that for Homework 2 there is only a single (\textit{one}) autograded notebook. You score for section 2.1 will be entirely determined by the score given by the autograder.
+
+\textbf{Make sure you do not forget to complete deliverables for all programming sections. In this homework not all programming sections will be autograded, so a full score on the autograder does not mean you have completed all programming assignments.}
+
+
+\clearpage
+

@@ -1,0 +1,127 @@
+
+\documentclass{exam}
+
+%------------------------ packages ------------------------%
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amsopn,bm}
+\usepackage{pythontex}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage[paper=letterpaper,margin=1in,includeheadfoot,footskip=0.25in,headsep=0.25in]{geometry}
+\usepackage{url}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[pdfborder={0 0 1},colorlinks=true,citecolor=black,plainpages=false]{hyperref}
+%\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage[english]{babel}
+\usepackage{pdfpages,bbm}
+\usepackage{enumitem}
+% \usepackage{todonotes}
+
+
+%------------------------ math ------------------------%
+\newcommand{\R}{\mathbb{R}} % real domain
+\newcommand{\Rset}{\mathbb{R}} % real domain
+\newcommand{\argmin}{\operatorname{argmin}}
+\newcommand{\argmax}{\operatorname{argmax}}
+\newcommand{\xv}{\mathbf{x}}
+\newcommand{\wv}{\mathbf{w}}
+\newcommand{\Xv}{\mathbf{X}}
+\newcommand{\W}{\mathbf{W}}
+\newcommand{\K}{\mathbf{K}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\Proj}{\mathbf{P}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\U}{\mathbf{U}}
+\newcommand{\V}{\mathbf{V}}
+\renewcommand{\L}{\mathbf{L}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\mD}{\mathbf{D}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\rank}{rank}
+
+\usepackage[many]{tcolorbox}
+
+\newtcolorbox[]{answer_box}[1][]
+{
+    fit,
+    enhanced,
+    colback=white,
+    title=Your Answer,
+    sidebyside align=top,
+    box align=top,
+    #1
+}
+
+%------------------------ exam class macros ------------------------%
+\checkboxchar{$\Box$}
+% \renewcommand{\questionshook}{%
+%     \setlength{\leftmargin}{10pt}%
+%     \setlength{\labelwidth}{-\labelsep}%
+% }
+\renewcommand{\checkboxeshook}{
+  \settowidth{\leftmargin}{W.}
+  \labelwidth\leftmargin\advance\labelwidth-\labelsep
+}
+
+
+\newcommand{\grade}[1]{\small\textcolor{magenta}{\emph{[#1 points]}} \normalsize}
+\newcommand{\sol}[1]{\ifshowsolutions{\leavevmode{\color{blue}Solution: #1}}\fi}
+
+\newif\ifshowsolutions
+%\showsolutionsfalse % whether to show solutions (true) or not (false)
+\showsolutionstrue
+
+
+\begin{document}
+
+\title{\textbf{\Large Homework 2}\\[0.5em] 
+\normalsize{TAs: Baihong, Glenn, and Pierce}}
+\author{\Large \bf 10-405/605: Machine Learning with Large Datasets}
+\date{{\bf Due Monday, February 10th at 11:59 PM Eastern Time}}
+\maketitle
+
+\noindent Submit your solutions via Gradescope.
+
+\bigskip
+
+\noindent \textbf{IMPORTANT:} Be sure to highlight where your solutions are for each question when submitting to Gradescope otherwise you will be marked 0 and will need to submit regrade request for every solution un-highlighted in order for fix it! 
+
+\bigskip
+
+\noindent Note that Homework 2 consists of two parts: this written assignment and a programming assignment. Remember to fill out the collaboration section found at the end of this homework as per the course policy.
+
+\bigskip
+
+\noindent Students enrolled in \textbf{10-605} are required to complete the following sections:
+\begin{enumerate}
+    \item  Written Section 1.1 \grade{24}
+    \item  Written Section 1.2 \grade{21}
+    \item Programming Section 2 \grade{35}
+\end{enumerate}
+
+\noindent For students enrolled in \textbf{10-405}, the following modifications apply:
+\begin{enumerate}
+    \item  You are \textbf{NOT} required to complete \textbf{1.1.3 Kernel Version}.
+    \item  You do \textbf{NOT} need to \textbf{compare exact kernel ridge regression} in \textbf{1.1.4}.
+\end{enumerate}
+
+Your homework score will be calculated as a percentage of the maximum possible points, which is 80 for students in 10-605 and 70 for students in 10-405.
+
+\clearpage
+\input{hw2_written}
+\clearpage
+\input{hw2_coding}
+\clearpage
+\input{collaboration}
+
+
+\end{document}

@@ -1,0 +1,142 @@
+\section{Written Section [45 Points for 10-605, 35 for 10-405]}
+
+\subsection{Regression, regression, regression [24 Points for 10-605, 14 for 10-405]}
+
+In this problem you will learn a regression model with the same dataset in several different ways. You may use any mix of manual calculation and computer code that you like. (You should only need short segments of code.) If you use any code, please include your code in the text of your written (part 1) submission --- not as part of the programming submission.
+
+The dataset for the regressions is below:
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+    $x_1$ & $x_2$ & const & $y$ \\
+    \hline
+    1 & 1 & 1 & 1 \\
+    1 & 0 & 1 & 2\\
+    0 & 1 & 1 & 1 \\
+    2 & 1 & 1 & $-1$
+\end{tabular}
+\end{center}
+
+For each of the parts \ref{q:regrs1}--\ref{q:regrs4} below, you will need to solve a system of linear equations. Please be sure to include the \textbf{actual numerical equations} that you solve in the answer to your question, i.e., write out the matrix $A$ and the vector $b$ if you solve $Ax=b$. Hint: the function \texttt{numpy.linalg.lstsq} can be very helpful for solving systems of linear equations, including if you need to find the minimum norm solution. But please \emph{do not} use its least squares functionality: i.e., if you want to solve a least squares problem, do it by constructing a set of linear equations that we can solve with zero residual error.
+
+
+\subsubsection{Exact linear regression \grade{5}}
+\label{q:regrs1}
+
+Solve the linear regression problem for this dataset exactly by computing the closed form solution (using the covariance matrix). Be sure to report the numerical matrix and vector for the normal equations, as well as the learned weight vector.
+
+\begin{answer_box}[title=,height=7cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+
+\subsubsection{Linear regression via gradient descent \grade{5}}
+Suppose you instead use gradient descent to approximately solve the linear regression problem. What is the gradient descent update for the objective at iteration $i+1$? The update should depend on the previous model iterate, $\mathbf{w}_{i}$; the step size, $\alpha$; and the dataset provided above. If $\mathbf{w}_{i} = \begin{pmatrix}
+        -2 \\ -3 \\ 1
+    \end{pmatrix}$ and $\alpha = 0.1$, what will be the value of $\mathbf{w}_{i+1}$?
+
+\begin{answer_box}[title=,height=7cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+\subsubsection{Kernel version (10-605 only) \grade{8}}
+
+Now switch to using the squared-exponential kernel, 
+
+$$\textstyle k(x,x') =  \exp(-\frac 12\|x-x'\|^2)$$
+
+Solve the kernel ridge regression problem exactly using the Gram matrix form, using ridge parameter $\lambda=1$. Be sure to report the numerical matrix and vector for the regression equations, as well as the resulting example weight vector.
+
+Make a prediction of the label for the following new point: $x_{\rm new} = (0, 0, 1)$. Report the formula that you use to make the prediction (including numerical values for all quantities) as well as the final prediction.
+
+\begin{answer_box}[title=,height=7cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+
+\subsubsection{When and why? 10-605: \grade{6}, 10-405: \grade{4}}
+
+For each of the methods that you used above (exact covariance-form regression, gradient descent, and exact kernel ridge regression), please give a few sentences saying when we might use this method and why. (For students in 10-405, you do not need to consider exact kernel ridge regression.)
+
+\begin{answer_box}[title=,height=7cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+
+\subsection{Hash Kernels [21 Points]}
+\label{q:regrs4}
+
+This part of the question refers to the paper ``Hash Kernels'' by Shi et al,  PMLR 5:496-503, 2009, available on-line at https://proceedings.mlr.press/v5/shi09a/shi09a.pdf.
+These questions may require you to make some assumptions about what was done---if you are unsure state your assumptions in your answer.
+
+\subsubsection{Degradation due to hash collisions \grade{2}}
+
+In one experiment of the paper, the authors evaluated how small a hash table needed to be, at reported how the size of the hash table affected collision rate, and the accuracy of the final classifier.  What table gives these results, which dataset did they use for evaluation, and what is the smallest  hash table for which accuracy was as good as accuracy with the 22-bit hash table?  
+\begin{answer_box}[title=,height=3cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+ \subsubsection{Compression achievable with hashing \grade{2}}
+
+ How many buckets are in that smallest hash table, and how much smaller is it than the 22-bit hash table?
+\begin{answer_box}[title=,height=3cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+ \subsubsection{Analysis of bias 1 \grade{2}}
+
+ In the paper Section 4 compares the values of $\overline{k}^h(x,x')$ and $k(x,x')$.  In your own words, what are these functions? One sentence each should be enough.
+\begin{answer_box}[title=,height=3cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+\subsubsection{Analysis of bias 2 \grade{5}}
+
+
+Assume that instances are documents, and all the feature weights are non-negative. 
+What is the relationship between $k(x,x')$ and $\overline{k}^h(x,x')$ ?  Explain your answer briefly.
+
+ \begin{enumerate}
+ \item It is always true that $k(x,x') \geq \overline{k}^h(x,x')$.
+ \item It is always true that $k(x,x') \leq \overline{k}^h(x,x')$.
+  \item It is always true that $k(x,x') = \overline{k}^h(x,x')$.
+ \end{enumerate}
+
+\begin{answer_box}[title=,height=3cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+\subsubsection{Joint hashing of labels and features \grade{5}}
+
+Assume that HLF hash kernels are used with a binary classifier $f$ (e.g., a logistic regression classifier), and that the HLF hashing method used follows Equation~8 rather than the optimization described below it.  Describe a plausible process for using HLF in a multiclass setting where there are $M$ disjoint class labels $y_1,\ldots,y_M$, by giving pseudocode describing (a) how the training data $(x_1,y_1)\ldots,(x_N,y_n)$ is 
+preprocessed and used to train $f$, and (b) the method  used at test time to classify single a document vector $x^*$.
+
+\medskip
+\begin{answer_box}[title=,height=3cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+\subsubsection{Approximation of DF \grade{5}}
+
+Give pseudocode for the process used by the authors to approximate DF in the hash space, assuming there are $B$ buckets.
+\begin{answer_box}[title=,height=3cm,width=16.5cm]  
+    % Place your solution here
+    
+\end{answer_box}
+
+ 
+
+ 
+
+ 
+
+ 
